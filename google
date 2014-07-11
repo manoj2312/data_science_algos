@@ -1,0 +1,13 @@
+#!/bin/bash
+urlBase="http://www.google.com/search?"
+urlQuery="q="
+echo $#
+for var in "$@"
+do
+	urlQuery=$urlQuery"$var+"
+done
+urlFinal=$urlBase$urlQuery
+suffix="+"
+urlFinal=${urlFinal%$suffix}
+echo $urlFinal
+xdg-open $urlFinal
